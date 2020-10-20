@@ -1,4 +1,5 @@
 
+
 public abstract class Employee {
 
     private String name;
@@ -26,13 +27,13 @@ public abstract class Employee {
         this.numberOfHoursPerWeek = numberOfHoursPerWeek;
     }
 
+
     @Override
     public String toString() {
         return "Employee " +
                 "name='" + name + '\'' +
                 ", salary=" + salary ;
     }
-
 
 }
 

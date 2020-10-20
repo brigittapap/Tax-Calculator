@@ -5,5 +5,4 @@ public class PartTimeEmployee extends Employee{
         super(name, salary);
     }
 
-
 }
