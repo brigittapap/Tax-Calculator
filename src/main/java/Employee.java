@@ -1,8 +1,9 @@
 
-public class Employee implements EmployeeService{
+public abstract class Employee {
 
     private String name;
     private int salary;
+    private int numberOfHoursPerWeek;
 
     public Employee(String name, int salary) {
         this.name = name;
@@ -13,11 +14,17 @@ public class Employee implements EmployeeService{
         return name;
     }
 
-
     public int getSalary() {
         return salary;
     }
 
+    public int getNumberOfHoursPerWeek() {
+        return numberOfHoursPerWeek;
+    }
+
+    public void setNumberOfHoursPerWeek(int numberOfHoursPerWeek) {
+        this.numberOfHoursPerWeek = numberOfHoursPerWeek;
+    }
 
     @Override
     public String toString() {
@@ -26,8 +33,6 @@ public class Employee implements EmployeeService{
                 ", salary=" + salary ;
     }
 
-    public int calculate_tax() {
-        return 0;
-    }
+
 }
 
