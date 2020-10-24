@@ -1,5 +1,5 @@
 interface TaxCalulator {
 
-    double calculateTax(Employee employee);
+    double calculate(Employee employee);
 
 }

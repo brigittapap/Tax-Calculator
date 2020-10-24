@@ -12,7 +12,7 @@ public class Main {
         Employee fulltimeemployee = new FullTimeEmployee("Matei", 2300);
         System.out.println(fulltimeemployee);
         TaxCalulator taxCalulator1 = new FullTimeEmployeeTaxCalculator();
-        double salary2 = taxCalulator1.calculateTax(fulltimeemployee);
+        double salary2 = taxCalulator1.calculate(fulltimeemployee);
         System.out.println(salary2);
 
     }
