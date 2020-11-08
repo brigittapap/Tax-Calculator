@@ -1,22 +1,26 @@
-
+package model;
 
 public abstract class Employee {
 
     private String name;
-    private int salary;
+    private Salary salary;
     private int numberOfHoursPerWeek;
 
-    public Employee(String name, int salary) {
+    public Employee(String name, double netSalary) {
         this.name = name;
-        this.salary = salary;
+        this.salary = new Salary(netSalary);
     }
 
     public String getName() {
         return name;
     }
 
-    public int getSalary() {
+    public Salary getSalary() {
         return salary;
+    }
+
+    public void setSalary(Salary salary) {
+        this.salary = salary;
     }
 
     public int getNumberOfHoursPerWeek() {
@@ -30,9 +34,9 @@ public abstract class Employee {
 
     @Override
     public String toString() {
-        return "Employee " +
+        return "model.Employee " +
                 "name='" + name + '\'' +
-                ", salary=" + salary ;
+                ", salary=" + salary;
     }
 
 }
