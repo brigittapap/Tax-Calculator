@@ -5,6 +5,7 @@ public abstract class Employee {
     private String name;
     private Salary salary;
     private int numberOfHoursPerWeek;
+    private String type;
 
     public Employee(String name, double netSalary) {
         this.name = name;
@@ -31,6 +32,13 @@ public abstract class Employee {
         this.numberOfHoursPerWeek = numberOfHoursPerWeek;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     @Override
     public String toString() {

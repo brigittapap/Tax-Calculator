@@ -1,7 +1,5 @@
 package model;
 
-import com.sun.xml.internal.ws.message.EmptyMessageImpl;
-import model.Employee;
 import service.TaxCalculator;
 import service.TaxCalculatorFactory;
 
@@ -11,7 +9,7 @@ public class Salary {
     TaxCalculatorFactory taxCalculatorFactory = new TaxCalculatorFactory();
     TaxCalculator taxCalculator;
 
-    public Salary(double netSalary){
+    public Salary(double netSalary) {
         this.netSalary = netSalary;
     }
 
@@ -19,7 +17,7 @@ public class Salary {
         return this.netSalary;
     }
 
-    public double getTax(String employee){
+    public double getTax(String employee) {
         taxCalculator = taxCalculatorFactory.getTaxCalculatorType(employee);
         return taxCalculator.calculate(getNetSalary());
     }
@@ -28,5 +26,12 @@ public class Salary {
         return this.getTax(employee) + this.getNetSalary();
     }
 
-
+    @Override
+    public String toString() {
+        return "Salary{" +
+                "netSalary=" + netSalary +
+                ", taxCalculatorFactory=" + taxCalculatorFactory +
+                ", taxCalculator=" + taxCalculator +
+                '}';
+    }
 }

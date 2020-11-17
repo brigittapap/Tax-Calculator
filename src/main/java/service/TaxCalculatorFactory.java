@@ -3,18 +3,18 @@ package service;
 public class TaxCalculatorFactory {
 
     public TaxCalculator getTaxCalculatorType(String taxCalculatorType) {
-        if(taxCalculatorType == null) {
-            return null;
+
+        switch (taxCalculatorType) {
+            case "FullTime":
+                return new FullTimeEmployeeTaxCalculator();
+
+            case "PartTime":
+                return new PartTimeEmployeeTaxCalculator();
+
+            case "Intern":
+                return new InternTaxCalculator();
+
         }
-        if(taxCalculatorType.equalsIgnoreCase("FULLTIMEEMPLOYEE")){
-            return new FullTimeEmployeeTaxCalculator();
-        }
-        if(taxCalculatorType.equalsIgnoreCase("PARTTIMEEMPLOYEE")){
-            return new PartTimeEmployeeTaxCalculator();
-        }
-        if(taxCalculatorType.equalsIgnoreCase("INTERN")){
-            return new InternTaxCalculator();
-        }
-         return null;
+        return null;
     }
 }

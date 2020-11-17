@@ -1,8 +1,4 @@
 import model.*;
-import service.FullTimeEmployeeTaxCalculator;
-import service.PartTimeEmployeeTaxCalculator;
-import model.Salary;
-import service.TaxCalculator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,42 +21,24 @@ public class Main {
 
             EMPLOYEES.forEach(employee -> {
                 String employeeName = employee.getName();
-                int hoursperWeerk = employee.getNumberOfHoursPerWeek();
-                String employeeType = null;
-                if(hoursperWeerk == 40) {
-                    employeeType = "FullTimeEmployee";
-                }
-                if(hoursperWeerk == 20) {
-                    employeeType = "PartTimeEmployee";
-                }
-                if(hoursperWeerk == 0){
-                    employeeType = "Intern";
+                String employeeType = employee.getType();
 
-                }
-                Salary netSalary = employee.getSalary();
+                Salary salary = employee.getSalary();
 
-                double tax = netSalary.getTax(employeeType);
-                double grossSalary = netSalary.getGrossSalary(employeeType);
+                double netSalary = salary.getNetSalary();
+                double tax = salary.getTax(employeeType);
+                double grossSalary = salary.getGrossSalary(employeeType);
 
-                printSalaryDetails(employeeName,netSalary,tax,grossSalary);
+                printSalaryDetails(employeeName, netSalary, tax, grossSalary);
             });
         }
 
-        public static void printSalaryDetails(String name, Salary salary, double tax, double grossSalary) {
-            System.out.println("\n===========================================================\n");
-            System.out.println(name + " salary details:\n");
-            System.out.println("Net Salary: " + Double.valueOf(salary.getNetSalary()));
-            System.out.println("Taxes: " + tax);
-            System.out.println("Gross Salary: " + grossSalary);
-        }
-
-
-//
-//        Employee fulltimeemployee = new FullTimeEmployee("Matei", 2300);
-//        System.out.println(fulltimeemployee);
-//        TaxCalculator taxCalulator1 = new FullTimeEmployeeTaxCalculator();
-//        double salary2 = taxCalulator1.calculate(fulltimeemployee);
-//        System.out.println(salary2);
-
+    public static void printSalaryDetails(String name, double netSalary, double tax, double grossSalary) {
+        System.out.println("\n===========================================================\n");
+        System.out.println(name + " salary details:\n");
+        System.out.println("Net Salary: " + netSalary);
+        System.out.println("Taxes: " + tax);
+        System.out.println("Gross Salary: " + grossSalary);
+    }
 
 }
