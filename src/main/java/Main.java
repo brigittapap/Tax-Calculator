@@ -1,4 +1,8 @@
 import model.*;
+import service.FullTimeEmployeeTaxCalculator;
+import service.PartTimeEmployeeTaxCalculator;
+import model.Salary;
+import service.TaxCalculator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,24 +25,36 @@ public class Main {
 
             EMPLOYEES.forEach(employee -> {
                 String employeeName = employee.getName();
-                String employeeType = employee.getType();
 
+                String employeeType = null;
+                if(employee instanceof FullTimeEmployee) {
+                    employeeType = "FullTimeEmployee";
+                }
+                if(employee instanceof PartTimeEmployee) {
+                    employeeType = "PartTimeEmployee";
+                }
+                if(employee instanceof Intern){
+                    employeeType = "Intern";
+                }
                 Salary salary = employee.getSalary();
 
                 double netSalary = salary.getNetSalary();
                 double tax = salary.getTax(employeeType);
                 double grossSalary = salary.getGrossSalary(employeeType);
 
-                printSalaryDetails(employeeName, netSalary, tax, grossSalary);
+                printSalaryDetails(employeeName,netSalary,tax,grossSalary);
             });
         }
 
-    public static void printSalaryDetails(String name, double netSalary, double tax, double grossSalary) {
-        System.out.println("\n===========================================================\n");
-        System.out.println(name + " salary details:\n");
-        System.out.println("Net Salary: " + netSalary);
-        System.out.println("Taxes: " + tax);
-        System.out.println("Gross Salary: " + grossSalary);
-    }
+        public static void printSalaryDetails(String name, double netSalary, double tax, double grossSalary) {
+            System.out.println("\n===========================================================\n");
+            System.out.println(name + " salary details:\n");
+            System.out.println("Net Salary: " + netSalary);
+            System.out.println("Taxes: " + tax);
+            System.out.println("Gross Salary: " + grossSalary);
+        }
+
+
+
 
 }
