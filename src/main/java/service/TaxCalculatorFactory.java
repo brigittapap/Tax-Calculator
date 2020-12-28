@@ -1,20 +1,27 @@
 package service;
 
+import model.Employee;
+import model.FullTimeEmployee;
+import model.Intern;
+import model.PartTimeEmployee;
+
 public class TaxCalculatorFactory {
 
-    public TaxCalculator getTaxCalculatorType(String taxCalculatorType) {
-
-        switch (taxCalculatorType) {
-            case "FullTime":
+    public TaxCalculator getTaxCalculator(Employee employee) {
+        try {
+            if (employee instanceof FullTimeEmployee)
                 return new FullTimeEmployeeTaxCalculator();
 
-            case "PartTime":
+            else if (employee instanceof PartTimeEmployee)
                 return new PartTimeEmployeeTaxCalculator();
 
-            case "Intern":
+            else if (employee instanceof Intern)
                 return new InternTaxCalculator();
 
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException occurred in the program");
         }
-        return null;
+        return null; //mit returnaljak itt?
     }
+
 }

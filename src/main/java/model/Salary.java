@@ -17,12 +17,12 @@ public class Salary {
         return this.netSalary;
     }
 
-    public double getTax(String employee) {
-        taxCalculator = taxCalculatorFactory.getTaxCalculatorType(employee);
+    public double getTax(Employee employee) {
+        taxCalculator = taxCalculatorFactory.getTaxCalculator(employee);
         return taxCalculator.calculate(getNetSalary());
     }
 
-    public double getGrossSalary(String employee) {
+    public double getGrossSalary(Employee employee) {
         return this.getTax(employee) + this.getNetSalary();
     }
 
