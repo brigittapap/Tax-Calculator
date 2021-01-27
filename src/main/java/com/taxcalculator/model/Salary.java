@@ -1,7 +1,7 @@
-package model;
+package com.taxcalculator.model;
 
-import service.TaxCalculator;
-import service.TaxCalculatorFactory;
+import com.taxcalculator.service.TaxCalculator;
+import com.taxcalculator.service.TaxCalculatorFactory;
 
 public class Salary {
 

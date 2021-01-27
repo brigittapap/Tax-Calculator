@@ -1,4 +1,4 @@
-package model;
+package com.taxcalculator.model;
 
 public abstract class Employee {
 

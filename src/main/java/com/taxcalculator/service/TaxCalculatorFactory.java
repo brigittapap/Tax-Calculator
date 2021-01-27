@@ -1,9 +1,9 @@
-package service;
+package com.taxcalculator.service;
 
-import model.Employee;
-import model.FullTimeEmployee;
-import model.Intern;
-import model.PartTimeEmployee;
+import com.taxcalculator.model.Employee;
+import com.taxcalculator.model.FullTimeEmployee;
+import com.taxcalculator.model.Intern;
+import com.taxcalculator.model.PartTimeEmployee;
 
 public class TaxCalculatorFactory {
 

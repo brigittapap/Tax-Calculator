@@ -1,4 +1,4 @@
-package model;
+package com.taxcalculator.model;
 
 public class Intern extends Employee {
 

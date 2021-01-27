@@ -1,4 +1,4 @@
-package service;
+package com.taxcalculator.service;
 
 public class PartTimeEmployeeTaxCalculator implements TaxCalculator {
 
