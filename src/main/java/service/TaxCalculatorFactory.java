@@ -8,20 +8,16 @@ import model.PartTimeEmployee;
 public class TaxCalculatorFactory {
 
     public TaxCalculator getTaxCalculator(Employee employee) {
-        try {
-            if (employee instanceof FullTimeEmployee)
-                return new FullTimeEmployeeTaxCalculator();
 
-            else if (employee instanceof PartTimeEmployee)
-                return new PartTimeEmployeeTaxCalculator();
+        if (employee instanceof FullTimeEmployee)
+            return new FullTimeEmployeeTaxCalculator();
 
-            else if (employee instanceof Intern)
-                return new InternTaxCalculator();
+        else if (employee instanceof PartTimeEmployee)
+            return new PartTimeEmployeeTaxCalculator();
 
-        } catch (NullPointerException e) {
-            System.out.println("NullPointerException occurred in the program");
-        }
-        return null; //mit returnaljak itt?
+        else if (employee instanceof Intern)
+            return new InternTaxCalculator();
+
+        throw new RuntimeException("Invalid employee type");
     }
-
 }
