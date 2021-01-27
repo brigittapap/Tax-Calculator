@@ -1,1 +1,4 @@
-/Calculator_taxe.iml
+*.iml
+.idea/
+out/
+target/
